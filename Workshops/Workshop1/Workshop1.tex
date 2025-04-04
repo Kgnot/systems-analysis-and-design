@@ -101,4 +101,31 @@ component, which generates a \textbf{\textbf{performance}} of the analyzed syste
 \begin{center}
     \includegraphics[width=0.75\textwidth]{src/IO.pdf}
   \end{center}
+
+  \section*{Complexity and Sensitivity}
+  Sensitivity analysis allows us to understand how changes in one component of the system can affect the entire system. To do this, we analyze how each component influences the system and to what extent, with a particular focus on those components where sensitivity is highest—i.e., where variations in the output can most significantly impact the overall system. All of this is aimed at predicting player performance based on how these components behave.\\
+  
+  \textbf{First, we begin with the inputs. In the system, two inputs were defined.}
+  
+  \subsection*{Login Interface – Auth Login}
+  The login interface is the user's entry point to access the game, and the auth login is the component that determines whether the user is allowed in or not. Although they do not directly affect the system, these elements are what enable the user to interact with the game itself.
+  
+  \subsection*{Mouse Events}
+  Events refer to the actions performed by the player using the mouse. These actions have a significant impact on the system, as depending on the decisions the player makes, how they make them, and the time taken to execute them, the system will respond in different ways. While there is not complete randomness—since in games actions are predefined—the variation lies in how the player carries them out.
+  \\
+  
+  \textbf{Now that we have analyzed the inputs, we will analyze the system components that influence the system.}
+  
+  \subsection*{Level}
+  The level reached by the player is a key element, as it reflects the progress and skills acquired during the game. However, it may present some limitations depending on the context, since this factor also largely depends on the player's ability, whether or not they use cheats to advance, and so on.
+  
+  \subsection*{Session Id}
+  The duration of each session per player allows for the analysis of whether players quickly become engaged with the game or, on the contrary, abandon it quickly. This factor is important for predicting player performance.
+  
+  \subsection*{Configuration}
+  Configuration is a very important aspect, as it can significantly influence the player's performance. Depending on the settings the player has adjusted, their in-game performance may vary in different ways. For the system presented, these settings include music volume, whether the game is in fullscreen mode, and the game’s quality.
+  
+  \subsection*{Data Analytics}
+  This system component will analyze the outputs of the previously described components to identify patterns that help determine player performance. The limitations of this component are directly related to the inputs—therefore, if these are biased, the prediction will be as well.
+  
 \end{document}
