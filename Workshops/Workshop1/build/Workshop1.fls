@@ -115,6 +115,15 @@ INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\tex\latex\rerunfilecheck\reru
 INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\tex\latex\rerunfilecheck\rerunfilecheck.sty
 INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\tex\generic\uniquecounter\uniquecounter.sty
 INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\tex\generic\uniquecounter\uniquecounter.sty
+INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\tex\latex\graphics\graphicx.sty
+INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\tex\latex\graphics\graphicx.sty
+INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\tex\latex\graphics\graphics.sty
+INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\tex\latex\graphics\graphics.sty
+INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\tex\latex\graphics\trig.sty
+INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\tex\latex\graphics\trig.sty
+INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\tex\latex\graphics-cfg\graphics.cfg
+INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\tex\latex\graphics-cfg\graphics.cfg
+INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\tex\latex\graphics-cfg\graphics.cfg
 INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT c:\Users\Henry\OneDriveUni\Escritorio\Escritorio\Septimo Semestre\Analisis de sistemas\systems-analysis-and-design\Workshops\Workshop1\build\Workshop1.aux
@@ -124,6 +133,11 @@ OUTPUT c:\Users\Henry\OneDriveUni\Escritorio\Escritorio\Septimo Semestre\Analisi
 INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
+INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\tex\latex\epstopdf-pkg\epstopdf-base.sty
+INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\tex\latex\epstopdf-pkg\epstopdf-base.sty
+INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
+INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
+INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT c:\Users\Henry\OneDriveUni\Escritorio\Escritorio\Septimo Semestre\Analisis de sistemas\systems-analysis-and-design\Workshops\Workshop1\build\Workshop1.out
 INPUT c:\Users\Henry\OneDriveUni\Escritorio\Escritorio\Septimo Semestre\Analisis de sistemas\systems-analysis-and-design\Workshops\Workshop1\build\Workshop1.out
 INPUT c:\Users\Henry\OneDriveUni\Escritorio\Escritorio\Septimo Semestre\Analisis de sistemas\systems-analysis-and-design\Workshops\Workshop1\build\Workshop1.out
@@ -150,6 +164,12 @@ INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tf
 INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1000.tfm
 INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
 INPUT C:\Users\Henry\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
+INPUT .\src\IO.pdf
+INPUT .\src\IO.pdf
+INPUT .\src\IO.pdf
+INPUT .\src\IO.pdf
+INPUT .\src\IO.pdf
+INPUT .\src\IO.pdf
 INPUT c:\Users\Henry\OneDriveUni\Escritorio\Escritorio\Septimo Semestre\Analisis de sistemas\systems-analysis-and-design\Workshops\Workshop1\build\Workshop1.aux
 INPUT c:\Users\Henry\OneDriveUni\Escritorio\Escritorio\Septimo Semestre\Analisis de sistemas\systems-analysis-and-design\Workshops\Workshop1\build\Workshop1.out
 INPUT c:\Users\Henry\OneDriveUni\Escritorio\Escritorio\Septimo Semestre\Analisis de sistemas\systems-analysis-and-design\Workshops\Workshop1\build\Workshop1.out
