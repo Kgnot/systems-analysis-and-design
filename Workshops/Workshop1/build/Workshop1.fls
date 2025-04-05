@@ -142,10 +142,10 @@ INPUT c:\Users\Henry\OneDriveUni\Escritorio\Escritorio\Septimo Semestre\Analisis
 INPUT c:\Users\Henry\OneDriveUni\Escritorio\Escritorio\Septimo Semestre\Analisis de sistemas\systems-analysis-and-design\Workshops\Workshop1\build\Workshop1.out
 INPUT c:\Users\Henry\OneDriveUni\Escritorio\Escritorio\Septimo Semestre\Analisis de sistemas\systems-analysis-and-design\Workshops\Workshop1\build\Workshop1.out
 INPUT c:\Users\Henry\OneDriveUni\Escritorio\Escritorio\Septimo Semestre\Analisis de sistemas\systems-analysis-and-design\Workshops\Workshop1\build\Workshop1.out
-OUTPUT c:\Users\Henry\OneDriveUni\Escritorio\Escritorio\Septimo Semestre\Analisis de sistemas\systems-analysis-and-design\Workshops\Workshop1\build\Workshop1.pdf
 INPUT c:\Users\Henry\OneDriveUni\Escritorio\Escritorio\Septimo Semestre\Analisis de sistemas\systems-analysis-and-design\Workshops\Workshop1\build\Workshop1.out
 INPUT c:\Users\Henry\OneDriveUni\Escritorio\Escritorio\Septimo Semestre\Analisis de sistemas\systems-analysis-and-design\Workshops\Workshop1\build\Workshop1.out
 OUTPUT c:\Users\Henry\OneDriveUni\Escritorio\Escritorio\Septimo Semestre\Analisis de sistemas\systems-analysis-and-design\Workshops\Workshop1\build\Workshop1.out
+OUTPUT c:\Users\Henry\OneDriveUni\Escritorio\Escritorio\Septimo Semestre\Analisis de sistemas\systems-analysis-and-design\Workshops\Workshop1\build\Workshop1.pdf
 INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr17.tfm
 INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
 INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr8.tfm
@@ -171,6 +171,7 @@ INPUT .\src\IO.pdf
 INPUT .\src\IO.pdf
 INPUT .\src\IO.pdf
 INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
+INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti10.tfm
 INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT c:\Users\Henry\OneDriveUni\Escritorio\Escritorio\Septimo Semestre\Analisis de sistemas\systems-analysis-and-design\Workshops\Workshop1\build\Workshop1.aux
@@ -188,3 +189,5 @@ INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\c
 INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
 INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr17.pfb
 INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr17.pfb
+INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmti10.pfb
+INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmti10.pfb
