@@ -14,15 +14,31 @@
 
 \title{Workshop 1}
 \author{Henry Ricaurte Mora 20221020084}
+\author{Germán Darío Aya Fuentes 20232020091}
+\author{Javier Alejandro Penagos Hernández 20221020028}
 \date{}
 
 \begin{document}
 
 \maketitle
 
-\section{Introducción}
-Este es un documento de prueba para verificar la correcta compilación de LaTeX.
 
+\section*{Context}
+
+Game-based learning offers a fun and dynamic way of teaching, allowing
+students to interact with educational content in playful environments.
+Although its use has grown, there are still few open datasets that enable 
+the application of data science to optimize these platforms. In 
+particular, knowledge tracing, which allows for personalized learning, has
+been little explored in educational games. 
+
+The Kaggle competition is organized by Field Day Lab, a public lab from
+the Wisconsin Center for Education Research, which develops free and 
+accessible games to study how people learn. In collaboration with 
+organizations like The Learning Agency Lab, they aim to improve 
+educational games and provide useful analytical tools for educators. If 
+successful, these initiatives could expand and strengthen the use of game-
+based learning in formal education.
 
 \section*{Components: }
 
@@ -129,6 +145,132 @@ component, which generates a \textbf{\textbf{performance}} of the analyzed syste
   This system component will analyze the outputs of the previously described components to identify patterns that help determine player performance. The limitations of this component are directly related to the inputs—therefore, if these are biased, the prediction will be as well.
   
 
+  \section*{Chaos and Randomness}
+
+  \subsection*{A Complex and Dynamic System}
+
+Although the system appears deterministic and computational, in practice 
+it behaves as a complex adaptive system. The diversity of individual 
+trajectories, the influence of context, and the continuous feedback 
+between the student and the environment make it a system whose evolution 
+cannot be reduced to simple or linear rules.
+
+These systems are characterized by the interaction of multiple variables, 
+the emergence of behaviors, and sensitivity to small perturbations in the 
+initial state. In the case of learning through games, the decisions, 
+emotions, and particular conditions of each player interact with the 
+system rules in unpredictable ways, generating highly variable dynamics 
+that are difficult to model.
+
+\subsection*{Chaotic Dynamics in Learning}
+
+A deeper analysis reveals characteristics of a chaotic system, understood 
+as one that, although deterministic, exhibits unpredictable behaviors due 
+to its extreme sensitivity to initial conditions. This is accompanied by 
+high nonlinearity, the emergence of patterns, and the presence of strange 
+attractors—all key concepts from chaos theory.
+
+\subsection*{Sensitivity to Initial Conditions}
+
+Each student starts a game session with a set of personal and contextual 
+variables: prior knowledge, motivation, emotional state, past experiences. 
+Small variations in these factors can lead to completely different 
+interaction trajectories with the system, making behavior very difficult 
+to predict with certainty. This phenomenon is reminiscent of the famous 
+``butterfly effect'' in chaos theory.
+
+\subsection*{Nonlinearity}
+
+The factors that influence performance do not have a direct or 
+proportional relationship with results. For example, more time spent on a 
+task may mean reflection in one case and confusion in another. This 
+nonlinearity makes the system highly unpredictable and challenging to 
+model.
+
+\subsection*{Emergence and Attractors}
+
+As students interact with the system, emergent behavior patterns appear.
+Some learn through trial and error, others become frustrated and quit, and 
+some internalize the rules and optimize their performance. These patterns 
+can be understood as strange attractors—conceptual figures from chaos 
+theory representing sets of states towards which a system tends without 
+ever exactly repeating itself.
+
+\subsection*{Chaotic Dynamics by Component}
+
+\begin{enumerate}
+    \item \textbf{Mouse Events (clicks, hover, x/y coordinates)}
+    \begin{itemize}
+        \item \textit{Chaotic nature:} Reflect micro-decisions by the 
+        student, influenced by attention, environmental interpretation, 
+        internal strategies, and emotional state.
+        \item \textit{Randomness:} The same stimulus can provoke different 
+        responses depending on the individual's context.
+        \item \textit{Impact:} Introduces noise into the system, 
+        complicating the direct association between event and performance.
+    \end{itemize}
+    
+    \item \textbf{Response Time}
+    \begin{itemize}
+        \item \textit{Chaotic nature:} Affected by reading speed, fatigue,
+        motivation, distractions, etc.
+        \item \textit{Randomness:} A fast response may indicate confidence 
+        or guessing; a slow one may indicate reflection or confusion.
+        \item \textit{Impact:} Needs contextualization for correct 
+        interpretation; its relation to performance is non-linear.
+    \end{itemize}
+    
+    \item \textbf{Level (player level)}
+    \begin{itemize}
+        \item \textit{Chaotic nature:} Depends on the accumulation of 
+        prior decisions and the player's adaptation to the environment.
+        \item \textit{Randomness:} Two players at the same level may have 
+        followed completely different paths.
+        \item \textit{Impact:} The level indicates relative progress, but 
+        not necessarily deep understanding.
+    \end{itemize}
+    
+    \item \textbf{Session\_id (session duration and frequency)}
+    \begin{itemize}
+        \item \textit{Chaotic nature:} Influenced by personal and external
+        factors, such as time availability or level of interest.
+        \item \textit{Randomness:} Sessions of the same duration may be 
+        qualitatively very different.
+        \item \textit{Impact:} Affects the amount of data per player and 
+        how their level of engagement is interpreted.
+    \end{itemize}
+    
+    \item \textbf{Configuration (visual and sound options)}
+    \begin{itemize}
+        \item \textit{Chaotic nature:} Interface variations change the 
+        sensory experience of the game.
+        \item \textit{Randomness:} Nonlinear impact on perception, 
+        concentration, or stress.
+        \item \textit{Impact:} Introduces heterogeneity into the 
+        environment that modifies player behavior.
+    \end{itemize}
+    
+    \item \textbf{Event\_handler and Event\_registry}
+    \begin{itemize}
+        \item \textit{Chaotic nature:} Represent unique and unrepeatable 
+        interaction sequences.
+        \item \textit{Randomness:} Each user follows a distinct path, with 
+        no exact replication.
+        \item \textit{Impact:} Key input for modeling, but require 
+        dimensionality reduction or grouping due to their complexity.
+    \end{itemize}
+    
+    \item \textbf{Data\_analytic and Performance}
+    \begin{itemize}
+        \item \textit{Chaotic nature:} Dependent on the quality and 
+        representativeness of the inputs.
+        \item \textit{Randomness:} The model may detect misleading 
+        patterns or apparent relationships that do not reflect real 
+        connections if the data contains bias or noise.
+        \item \textit{Impact:} Limits the model's accuracy in trying to 
+        generalize in an inherently unpredictable system.
+    \end{itemize}
+\end{enumerate}
 
   \section*{Conclusion}
   The system, based on the analysis performed, demonstrates a certain robustness in its relationships. This property ensures that its results are more precise and less susceptible to errors.\\
@@ -139,5 +281,6 @@ component, which generates a \textbf{\textbf{performance}} of the analyzed syste
   \underline{\textbf{event\_registry}} we can still note an overall balance in the importance weights.\\
   Another important point is its internal configuration. Here, we can identify small subregions that improve diagram readability regions with significantly strong influence that,
    in addition to providing balance (as previously mentioned), offer control over the problem's surface and its purpose.
+
 
 \end{document}
