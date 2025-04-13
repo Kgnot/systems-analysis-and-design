@@ -63,9 +63,10 @@ The Kaggle competition is organized by Field Day Lab, a public lab from the Wisc
 \par
 As a primary relationship, we have the one that generates the input: the \textbf{\textbf{mouse}}, 
 which contains two main events: \textbf{\textbf{hover}} and \textbf{\textbf{click}}, where each 
-of these is mapped using a Cartesian coordinate (\textbf{\textbf{x}}, \textbf{\textbf{y}}). This 
+of these is mapped using a cartesian coordinate (\textbf{\textbf{x}}, \textbf{\textbf{y}}). This 
 first "major" system constantly communicates by sending all information 
-to the \textbf{\textbf{event\_handler}}, which contains a \textbf{\textbf{name}} and 
+to \textbf{Screen} and \textbf{Room} these communicate with \textbf{Recept} which in turn communicates with \textbf{event\_handler}, 
+which contains a \textbf{\textbf{name}} and 
 a \textbf{\textbf{text}} for each of these events.
 \\
 \\
@@ -81,8 +82,7 @@ Approaching the \textbf{\textbf{configuration}} section, we have 3 relationships
   \textbf{\textbf{full\_screen}}, and \textbf{\textbf{option\_music}}. 
   \\
  \\
- \\
-In \textbf{\textbf{user\_id}} we also handle another relationship: this one gets to 
+ In \textbf{\textbf{user\_id}} we also handle another relationship: this one gets to 
 \textbf{\textbf{id\_notebook}}’s component, which contains \textbf{\textbf{pages}} 
 that are connected with an event we will manage as \textbf{\textbf{event\_handler}}.
 \\

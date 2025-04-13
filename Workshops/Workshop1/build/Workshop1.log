@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.4.4)  13 APR 2025 16:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.4.4)  13 APR 2025 16:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -401,11 +401,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 64--94
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 64--94
-
- []
-
 <src/IO.pdf, id=14, 633.32607pt x 290.0436pt>
 File: src/IO.pdf Graphic file (type pdf)
 <use src/IO.pdf>
@@ -438,7 +433,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  75i,7n,79p,631b,686s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Henry\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/Henry/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Henry/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Henry/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/Henry/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Henry/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Henry/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Henry/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on "c:\Users\Henry\OneDriveUni\Escritorio\Escritorio\Septimo Semestre\Analisis de sistemas\systems-analysis-and-design\Workshops\Workshop1\build\Workshop1.pdf" (5 pages, 170346 bytes).
+Output written on "c:\Users\Henry\OneDriveUni\Escritorio\Escritorio\Septimo Semestre\Analisis de sistemas\systems-analysis-and-design\Workshops\Workshop1\build\Workshop1.pdf" (5 pages, 170409 bytes).
 PDF statistics:
  87 PDF objects out of 1000 (max. 8388607)
  13 named destinations out of 1000 (max. 500000)
