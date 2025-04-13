@@ -164,6 +164,8 @@ INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tf
 INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1000.tfm
 INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
 INPUT C:\Users\Henry\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
+INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti10.tfm
+INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbxti10.tfm
 INPUT .\src\IO.pdf
 INPUT .\src\IO.pdf
 INPUT .\src\IO.pdf
@@ -171,7 +173,6 @@ INPUT .\src\IO.pdf
 INPUT .\src\IO.pdf
 INPUT .\src\IO.pdf
 INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
-INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti10.tfm
 INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT c:\Users\Henry\OneDriveUni\Escritorio\Escritorio\Septimo Semestre\Analisis de sistemas\systems-analysis-and-design\Workshops\Workshop1\build\Workshop1.aux
@@ -183,6 +184,8 @@ INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\c
 INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
 INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
+INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbxti10.pfb
+INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbxti10.pfb
 INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
 INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
 INPUT C:\Users\Henry\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
