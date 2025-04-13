@@ -13,7 +13,9 @@
 
 
 \title{Workshop 1}
+
 \author{Henry Ricaurte Mora 20221020084 \\ Germán Darío Aya Fuentes 20232020091 \\ Javier Alejandro Penagos Hernández 20221020028}
+
 \date{}
 
 \begin{document}
@@ -23,20 +25,11 @@
 
 \section*{Context}
 
-Game-based learning offers a fun and dynamic way of teaching, allowing
-students to interact with educational content in playful environments.
-Although its use has grown, there are still few open datasets that enable 
-the application of data science to optimize these platforms. In 
-particular, knowledge tracing, which allows for personalized learning, has
-been little explored in educational games. 
+Game-based learning offers a fun and dynamic way of teaching, allowing students to interact with educational content in playful environments. The main objective is to predict student performance; specifically, the goal is to determine whether a user will answer a question correctly based on their behavior. This prediction is closely related to the level they reach in the game, which depends on how many questions they answer correctly.
 
-The Kaggle competition is organized by Field Day Lab, a public lab from
-the Wisconsin Center for Education Research, which develops free and 
-accessible games to study how people learn. In collaboration with 
-organizations like The Learning Agency Lab, they aim to improve 
-educational games and provide useful analytical tools for educators. If 
-successful, these initiatives could expand and strengthen the use of game-
-based learning in formal education.
+Although the use of educational games has grown, there are still few open datasets that enable the application of data science to optimize these platforms. In particular, knowledge tracing—which allows for personalized learning—has been little explored in educational games.
+
+The Kaggle competition is organized by Field Day Lab, a public lab from the Wisconsin Center for Education Research, which develops free and accessible games to study how people learn. In collaboration with organizations like The Learning Agency Lab, they aim to improve educational games and provide useful analytical tools for educators. If successful, these initiatives could expand and strengthen the use of game-based learning in formal education.
 
 \section*{Components: }
 
@@ -50,32 +43,23 @@ based learning in formal education.
     \item \textbf{\textbf{Session\_id}}: Unique identifier of the session.
     \item \textbf{\textbf{User\_id}}: Unique identifier of the user within the system.
     \item \textbf{\textbf{Level}}: User parameter that characterizes their skill level and/or progress.
-    \item \textbf{\textbf{Login\_interface}}: Interface that functions as an input to access the system.
-    \item \textbf{\textbf{Auth\_system}}: Authentication system to determine whether access is granted or denied.
     \item \textbf{\textbf{Configuration}}: Component responsible for managing the game's configurations.
     \item \textbf{\textbf{Hq}}: Identifier related to the visual configuration of the system.
     \item \textbf{\textbf{Full\_screen}}: Identifier related to the visual configuration of the system.
     \item \textbf{\textbf{Option\_music}}: Component that balances the game’s music.
-    \item \textbf{\textbf{Screen}}: Specifies characteristics related to the program’s magnitude.
-    \item \textbf{\textbf{Audio\_system}}: External system component that provides the user with specific game audio.
-    \item \textbf{\textbf{Music\_room}}: Component responsible for the music in the room.
-    \item \textbf{\textbf{Music\_game}}: Component responsible for the game’s music.
     \item \textbf{\textbf{Id\_notebook}}: Unique identifier of the notebook.
     \item \textbf{\textbf{Pages}}: Space for making notes, paraphrasing ideas, or building a solution.
     \item \textbf{\textbf{Event\_registry}}: Registry of all events in the system.
-    \item \textbf{\textbf{Data\_analystic}}: Component responsible for generating and managing the system’s solution to reach the objective.
-    \item \textbf{\textbf{Performance}}: Main output of the system (not feedback-based).
     \item \textbf{Screen}: Component responsible for managing the coordinates of the system.
     \item \textbf{Room }: Component responsible for managing the coordinates of the system and helpi to creation of questions.
     \item \textbf{Question}: Management the level of the system.
+    \item \textbf{\textbf{Data\_analytic}}: Component responsible for generating and managing the system’s solution to reach the objective. Its main purpose is to \textit{predict, based on player behavior, whether a user will answer a question correctly}.
+    \item \textbf{\textbf{Performance}}: Main output of the system (not feedback-based). It reflects \textit{how many questions the user answered correctly and which \textbf{level\_group} they reached}.
+
 \end{itemize}
 
 \section*{Relationships}
 
-Our first relationship is the one related to the \textbf{\textbf{login\_interface}}, 
-which leads us to an \textbf{\textbf{auth\_system}} that is responsible for either returning a 
-credential error or performing a login and modeling the system based on a \textbf{\textbf{user\_id}}.
-\\
 \\
 As a primary relationship, we have the one that generates the input: the \textbf{\textbf{mouse}}, 
 which contains two main events: \textbf{\textbf{hover}} and \textbf{\textbf{click}}, where each 
@@ -94,14 +78,8 @@ Continuing with the design of the user interface system, after entering the
   \\
 Approaching the \textbf{\textbf{configuration}} section, we have 3 relationships that obtain state
  information and share it with the corresponding components: \textbf{\textbf{hq}},
-  \textbf{\textbf{full\_screen}}, and \textbf{\textbf{option\_music}}. Both \textbf{\textbf{hq}} 
-  and \textbf{\textbf{full\_screen}} send information to the \textbf{\textbf{screen}} as output.
+  \textbf{\textbf{full\_screen}}, and \textbf{\textbf{option\_music}}. 
   \\
-  \\
-\textbf{\textbf{Option\_music}} also generates an output to the \textbf{\textbf{audio\_system}},
- and in addition, is able to receive what other components such as \textbf{\textbf{music\_room}}
- and \textbf{\textbf{music\_game}} transmit, and make changes by generating a turn 
- \textbf{\textbf{off}} or \textbf{\textbf{on}}.
  \\
  \\
 In \textbf{\textbf{user\_id}} we also handle another relationship: this one gets to 
@@ -124,9 +102,6 @@ component, which generates a \textbf{\textbf{performance}} of the analyzed syste
   
   \textbf{First, we begin with the inputs. In the system, two inputs were defined.}
   
-  \subsection*{Login Interface – Auth Login}
-  The login interface is the user's entry point to access the game, and the auth login is the component that determines whether the user is allowed in or not. Although they do not directly affect the system, these elements are what enable the user to interact with the game itself.
-  
   \subsection*{Mouse Events}
   Events refer to the actions performed by the player using the mouse. These actions have a significant impact on the system, as depending on the decisions the player makes, how they make them, and the time taken to execute them, the system will respond in different ways. While there is not complete randomness—since in games actions are predefined—the variation lies in how the player carries them out.
   \\
@@ -134,7 +109,7 @@ component, which generates a \textbf{\textbf{performance}} of the analyzed syste
   \textbf{Now that we have analyzed the inputs, we will analyze the system components that influence the system.}
   
   \subsection*{Level}
-  The level reached by the player is a key element, as it reflects the progress and skills acquired during the game. However, it may present some limitations depending on the context, since this factor also largely depends on the player's ability, whether or not they use cheats to advance, and so on.
+  The level reached by the player is a key element, as it reflects the progress and skills acquired during the game. However, it may present some limitations depending on the context, since this factor also largely depends on the player's ability.
   
   \subsection*{Session Id}
   The duration of each session per player allows for the analysis of whether players quickly become engaged with the game or, on the contrary, abandon it quickly. This factor is important for predicting player performance.
@@ -177,8 +152,7 @@ Each student starts a game session with a set of personal and contextual
 variables: prior knowledge, motivation, emotional state, past experiences. 
 Small variations in these factors can lead to completely different 
 interaction trajectories with the system, making behavior very difficult 
-to predict with certainty. This phenomenon is reminiscent of the famous 
-``butterfly effect'' in chaos theory.
+to predict with certainty.
 
 \subsection*{Nonlinearity}
 
