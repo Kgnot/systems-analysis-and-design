@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{amsmath}
+\usepackage{lmodern}
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[a4paper, margin=2.5cm]{geometry} 
@@ -10,6 +11,9 @@
 \usepackage{graphicx}
 
 \newcommand{\reqnum}[1]{\textbf{\underline{RF-#1}}}
+\newcommand{\reqnumNF}[1]{\textbf{\underline{RNF-#1}}}
+
+
 
 % Ajuste fino de listas
 \setlist[itemize]{left=2.5em, labelsep=1em, itemsep=0.4em, topsep=0.6em}
@@ -60,13 +64,37 @@ Javier Alejandro Penagos Hernández 20221020028
 
 \subsection{Non-Functional Requirements}
 \subsubsection{Performance}
+\begin{itemize}
+    \item[\reqnumNF{001}] The system must capture and store user interactions in real time without affecting the user experience.
+    \item[\reqnumNF{002}] Data preprocessing and normalization must not exceed 500 ms per batch of captured events.
+\end{itemize}
+
 \subsubsection{Reliability}
-\subsubsection{Safety}
-\subsubsection{Ease of use}
+\begin{itemize}
+    \item[\reqnumNF{003}] The system must guarantee 99.9\% availability during gameplay sessions.
+    \item[\reqnumNF{004}] An integrity check must be implemented for each processed data block.
+\end{itemize}
+
+\subsubsection{Security}
+\begin{itemize}
+    \item[\reqnumNF{005}] All sensitive data (\texttt{user\_id}, \texttt{session\_id}) must be stored and transmitted using AES-256 encryption.
+    \item[\reqnumNF{006}] The system must implement role-based access control for data management and visualization.
+\end{itemize}
+
+\subsubsection{Ease of Use}
+\begin{itemize}
+    \item[\reqnumNF{007}] The user configuration interface must be accessible and intuitive, allowing easy adjustments to parameters such as volume, resolution, and fullscreen mode.
+    \item[\reqnumNF{008}] Key metrics and model outputs must be visualized through interactive dashboards supported by tools such as \textbf{Grafana}, facilitating interpretation by non-technical users.
+\end{itemize}
+
 \subsubsection{Interoperability}
+\begin{itemize}
+    \item[\reqnumNF{009}] The system must integrate seamlessly with analysis platforms such as \textbf{Jupyter}, \textbf{Apache Kafka}, \textbf{Grafana}, and relational or NoSQL databases.
+    \item[\reqnumNF{010}] The predictive model must be exportable in \texttt{ONNX} format or similar, ensuring portability across languages and frameworks.
+\end{itemize}
     
 
-\section{High-Level Arquitecture}
+\section{High-Level Architecture}
 
 \section{Addressing Sensitivity and Chaos}
 
