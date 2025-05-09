@@ -14,8 +14,8 @@ jobs:
       uses: xu-cheng/latex-action@v2
       with:
         root_file: |
-          Workshops/Workshop1/archivo.tex
-          Workshops/Workshop2/archivo2.tex
+          Workshops/Workshop1/Workshop1.tex
+          Workshops/Workshop2/Workshop1.tex
         args: >
           -output-directory=./build
           -interaction=nonstopmode
