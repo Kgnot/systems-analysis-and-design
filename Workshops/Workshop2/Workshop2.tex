@@ -97,7 +97,26 @@ Javier Alejandro Penagos Hernández 20221020028
 \section{High-Level Architecture}
 
 \section{Addressing Sensitivity and Chaos}
+In this section, we address the sensitive variables and chaotic factors identified during the system analysis in Workshop 1. The student’s performance in this context is modeled based on their interactions with the educational game. Multiple sources of variability were identified, including unpredictable user behavior, variable initial conditions, and random in-game events.
 
+In terms of user behavior, we observed fast or erratic clicks, irregular mouse movements, and non-linear navigation paths. Regarding initial conditions, factors such as emotional state, motivation level, and familiarity with the game can significantly affect user interaction. Random events may include variations in question difficulty or game elements that introduce noise into the dataset.
+
+The mitigation strategies implemented to address these challenges include:
+
+\begin{enumerate}
+    \item \textbf{Data Normalization and Preprocessing:}
+    \begin{itemize}
+        \item Elimination of erroneous and duplicate clicks.
+        \item Standardization of \texttt{x,y} coordinate space.
+        \item Extraction of temporal features.
+    \end{itemize}
+    
+    \item \textbf{Use of TensorFlow Decision Forests (TF-DF):} \\
+    TF-DF is robust to noisy data and can handle both categorical and numerical features without requiring additional encoding. The ensemble nature of decision forests enables the model to capture non-linear and complex relationships among variables, thus improving generalization capabilities.
+
+    \item \textbf{Monitoring of Unanticipated Conditions:} \\
+    Implementation of observation routines to detect unusual patterns or anomalies in the interaction data.
+\end{enumerate}
 \section{Technical Stack and Implementation Sketch}
 
 \end{document}
