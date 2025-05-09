@@ -1,0 +1,75 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=2.5cm]{geometry} 
+\usepackage{titlesec}
+\usepackage{enumitem} 
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+\newcommand{\reqnum}[1]{\textbf{\underline{RF-#1}}}
+
+% Ajuste fino de listas
+\setlist[itemize]{left=2.5em, labelsep=1em, itemsep=0.4em, topsep=0.6em}
+
+\title{Workshop 2}
+\author{
+Henry Ricaurte Mora 20221020084 \\
+Germán Darío Aya Fuentes 20232020091 \\
+Javier Alejandro Penagos Hernández 20221020028
+}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Review Workshop {\#}1 Findings}
+
+\section{Define System Requirements}
+
+\subsection{Functional Requirements}
+
+\subsubsection{Data Capture and Storage}
+\begin{itemize}
+    \item[\reqnum{001}] Capture all user interactions including hovers, clicks, and drags with their respective \texttt{x,y} coordinates and timestamp.
+    \item[\reqnum{002}] Assign a unique \texttt{session\_id} per game session.
+    \item[\reqnum{003}] Link all interactions to a specific \texttt{user\_id}.
+    \item[\reqnum{004}] Store user configuration settings including \texttt{full\_screen}, \texttt{hq}, and \texttt{music\_volume}.
+    \item[\reqnum{005}] Save the \texttt{level\_group} and question progress.
+\end{itemize}
+
+\subsubsection{Data Processing and Normalization}
+\begin{itemize}
+    \item[\reqnum{006}] Remove erroneous or duplicate clicks (condition: <90ms between clicks).
+    \item[\reqnum{007}] Normalize \texttt{x,y} coordinates by standardizing to a key resolution.
+    \item[\reqnum{008}] Extract temporal features: time between events, response speed.
+    \item[\reqnum{009}] Extract spatial features: movement patterns like trajectories.
+    \item[\reqnum{010}] Extract contextual features: difficulty level and number of retries.
+\end{itemize}
+
+\subsubsection{Prediction Model}
+\begin{itemize}
+    \item[\reqnum{011}] \texttt{screen\_coor\_x/y}: Mouse position at critical questions.
+    \item[\reqnum{012}] \texttt{event\_name}: Actions like \texttt{cutscene\_click} or \texttt{map\_click}.
+    \item[\reqnum{013}] \texttt{elapsed\_time}: Cumulative time in session.
+    \item[\reqnum{014}] \texttt{hover\_duration}: Time spent on interactive elements.
+\end{itemize}
+
+\subsection{Non-Functional Requirements}
+\subsubsection{Performance}
+\subsubsection{Reliability}
+\subsubsection{Safety}
+\subsubsection{Ease of use}
+\subsubsection{Interoperability}
+    
+
+\section{High-Level Arquitecture}
+
+\section{Addressing Sensitivity and Chaos}
+
+\section{Technical Stack and Implementation Sketch}
+
+\end{document}
