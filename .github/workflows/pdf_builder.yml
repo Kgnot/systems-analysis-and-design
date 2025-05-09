@@ -1,21 +1,17 @@
 name: Build LaTeX PDF into build/ folder
-
 on:
   pull_request:
     paths:
       - 'Workshops/Workshop1/**.tex'
       - 'Workshops/Workshop2/**.tex'
-
 jobs:
   build-pdf:
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
-
     - name: Install LaTeX
-      uses: dante-ev/latex-action@v1
+      uses: xu-cheng/latex-action@v2
       with:
         root_file: |
           Workshops/Workshop1/archivo.tex
@@ -25,14 +21,12 @@ jobs:
           -interaction=nonstopmode
           -file-line-error
         work_in_root_file_dir: true
-
     - name: Upload Workshop1 PDF
       if: always()
       uses: actions/upload-artifact@v3
       with:
         name: workshop1-pdf
         path: Workshops/Workshop1/build/archivo.pdf
-
     - name: Upload Workshop2 PDF
       if: always()
       uses: actions/upload-artifact@v3
