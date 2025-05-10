@@ -32,6 +32,65 @@ Javier Alejandro Penagos Hernández 20221020028
 
 \section{Review Workshop {\#}1 Findings}
 
+In Workshop \#1, a detailed analysis was conducted on the system behind a Kaggle competition focused on predicting student performance in a game-based learning environment. The primary objective of this system is to determine, based on behavioral data collected during interaction, whether a student will answer a question correctly. This prediction is directly related to the level the user reaches in the game, which reflects both skill and progress.
+
+\subsection*{Key Findings}
+
+\subsubsection*{System Components}
+
+The analysis identified an architecture composed of multiple interconnected elements forming a complex cyber-physical system:
+
+\begin{itemize}
+    \item \textbf{Inputs}: User interaction begins with the \textit{mouse}, whose main events are \textit{hover} and \textit{click}. These are recorded with Cartesian coordinates (\textit{x, y}) and routed through the system.
+    
+    \item \textbf{Processing}: Events are handled by modules such as \textit{screen}, \textit{room}, and \textit{recept}, which interact with the \textit{event handler}. The \textit{event handler} assigns a \textit{name} and \textit{text} to each event and forwards them to the \textit{event registry}.
+    
+    \item \textbf{Identification and Context}: Each user is associated with a \textit{user id}, which relates to parameters such as \textit{level}, \textit{configuration} (fullscreen, music option, visual quality), and \textit{session id}.
+    
+    \item \textbf{Analytics}: All events are registered and processed by the \textit{data analytic} module, responsible for generating a prediction of the student’s \textit{performance}, i.e., their ability to correctly answer questions.
+\end{itemize}
+
+\subsubsection*{Functional Relationships}
+
+The system's structure reveals highly integrated relationships between inputs, user context, and internal processing:
+
+\begin{itemize}
+    \item User actions are progressively transformed and fed into the analytics module.
+    \item System configuration introduces contextual elements that modify user experience and potentially influence behavior.
+    \item The \textit{event handler} and \textit{event registry} serve as central bridges between input and output, consolidating interactions into structured data for prediction.
+\end{itemize}
+
+\subsubsection*{System Sensitivity}
+
+Several variables were identified as highly sensitive, meaning that their variation can significantly affect system behavior:
+
+\begin{itemize}
+    \item \textbf{Mouse Events}: These micro-decisions reflect internal processes like attention, emotion, and strategy. While game actions are predefined, their execution varies per user.
+    
+    \item \textbf{Response Time}: May represent either reflection or confusion. Its interpretation requires context and is non-linear.
+    
+    \item \textbf{User Level}: Indicates progress but results from a sequence of unique decisions, differing across users.
+    
+    \item \textbf{Session Duration and Frequency}: Influenced by personal factors like motivation or time availability; affects data volume and quality.
+    
+    \item \textbf{System Configuration}: Audio, fullscreen mode, and graphic quality introduce perceptual differences that affect performance in a non-linear way.
+\end{itemize}
+
+\subsubsection*{Chaos and System Dynamics}
+
+The system was characterized as a \textbf{complex adaptive system} with \textbf{deterministic chaotic dynamics}. This behavior is evident in:
+
+\begin{itemize}
+    \item \textbf{Sensitivity to Initial Conditions}: Small differences in students’ initial states (prior knowledge, motivation, emotional context) lead to divergent interaction trajectories.
+    
+    \item \textbf{Nonlinearity}: There is no direct, proportional relationship between input factors and performance. The same action can yield different outcomes.
+    
+    \item \textbf{Emergence and Strange Attractors}: Over time, unique behavioral patterns emerge per student, difficult to predict and highly individualized.
+\end{itemize}
+
+These elements suggest that the system cannot be modeled effectively using simple or linear relationships, and that any design must incorporate strategies to manage its inherent complexity.
+
+
 \section{Define System Requirements}
 
 \subsection{Functional Requirements}
