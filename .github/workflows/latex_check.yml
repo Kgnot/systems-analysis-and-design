@@ -1,0 +1,29 @@
+name: PR - LaTeX Verification
+on:
+  pull_request:
+    paths:
+      - 'Workshops/Workshop1/**.tex'
+      - 'Workshops/Workshop2/**.tex'
+
+jobs:
+  verify-latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+       
+      - name: Verify LaTeX documents
+        uses: xu-cheng/latex-action@v2
+        with:
+          docker_image: ghcr.io/xu-cheng/texlive-basic:latest
+          extra_packages: "geometry graphicx hyperref babel amsmath amssymb titlesec enumitem xcolor"
+          root_file: |
+            Workshops/Workshop1/Workshop1.tex
+            Workshops/Workshop2/Workshop2.tex
+          compiler: pdflatex
+          args: >
+            -output-directory=./build
+            -interaction=nonstopmode
+            -file-line-error
+          work_in_root_file_dir: true
+          continue_on_error: false
