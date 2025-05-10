@@ -9,9 +9,6 @@
 \usepackage{xcolor}
 \usepackage{hyperref}
 \usepackage{graphicx}
-\usepackage{tikz}
-\usepackage[margin=1in]{geometry} 
-\usetikzlibrary{positioning, arrows.meta, shapes.misc, shapes.geometric}
 
 \newcommand{\reqnum}[1]{\textbf{\underline{RF-#1}}}
 \newcommand{\reqnumNF}[1]{\textbf{\underline{RNF-#1}}}
@@ -160,37 +157,10 @@ These elements suggest that the system cannot be modeled effectively using simpl
 
 \begin{figure}[h]
     \centering
-    \resizebox{\textwidth}{!}{
-    \begin{tikzpicture}[
-    node distance=1.2cm,
-    box/.style={
-    draw,
-    rectangle,
-    minimum width=2.5cm,
-    minimum height=0.8cm,
-    align=center,
-    font=\sffamily\small
-    },
-    arrow/.style={-Stealth, thick}
-    ]
-    \node[box] (ingestion) {Data Ingestion};
-    \node[box, right=of ingestion] (preparation) {Data Preparation};
-    \node[box, right=of preparation] (training) {Model Training};
-    \node[box, right=of training] (inference) {Model Inference};
-    \node[box, right=of inference] (submission) {Submission Generator};
-    \draw[arrow] (ingestion) -- (preparation);
-    \draw[arrow] (preparation) -- (training);
-    \draw[arrow] (training) -- (inference);
-    \draw[arrow] (inference) -- (submission);
-    \draw[thick] ([yshift=-1cm]ingestion.south west) -- ([yshift=-1cm]submission.south east);
-    \fill[white, draw=black] ([yshift=-1cm]ingestion.south west) circle (2pt);
-    \fill[white, draw=black] ([yshift=-1cm]$(ingestion)!0.5!(submission)$) circle (2pt);
-    \fill[white, draw=black] ([yshift=-1cm]submission.south east) circle (2pt);
-    \end{tikzpicture}
-    }
+    \includegraphics[width=\textwidth]{src/imagen.png}
     \caption{Pipeline for Predictive Model Development}
-    \end{figure}
-
+\end{figure}
+    
 \subsection*{Data Ingestion}
 
 First, raw data is loaded. The competition provides four essential files to develop the predictive model:
