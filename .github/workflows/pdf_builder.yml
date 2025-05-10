@@ -1,9 +1,5 @@
-name: LaTeX Build Workflow
+name: Main - Build LaTeX PDFs
 on:
-  pull_request:
-    paths:
-      - 'Workshops/Workshop1/**.tex'
-      - 'Workshops/Workshop2/**.tex'
   push:
     branches:
       - main
@@ -13,55 +9,18 @@ on:
       - 'Workshops/Workshop2/**.tex'
 
 jobs:
-  # Trabajo para verificar la compilación en PRs
-  verify-latex:
-    if: github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        
-      # Utilizar caché para la imagen de texlive
-      - name: Cache Docker images
-        uses: actions/cache@v3
-        with:
-          path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-buildx-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-buildx-
-            
-      - name: Verify LaTeX documents (dryrun)
-        uses: xu-cheng/latex-action@v2
-        with:
-          docker_image: ghcr.io/xu-cheng/texlive-basic:latest
-          extra_packages: "geometry graphicx hyperref babel amsmath amssymb titlesec enumitem xcolor"
-          root_file: |
-            Workshops/Workshop1/Workshop1.tex
-            Workshops/Workshop2/Workshop2.tex
-          compiler: pdflatex
-          args: >
-            -output-directory=./build
-            -interaction=nonstopmode
-            -file-line-error
-          work_in_root_file_dir: true
-          continue_on_error: false
-  # Trabajo para compilar y subir PDFs en push a main/master
   build-pdf:
-    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        
-      # Utilizar caché para la imagen de texlive
-      - name: Cache Docker images
-        uses: actions/cache@v3
-        with:
-          path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-buildx-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-buildx-
             
+      # Crear directorios build si no existen
+      - name: Create build directories
+        run: |
+          mkdir -p Workshops/Workshop1/build
+          mkdir -p Workshops/Workshop2/build
+           
       - name: Compile LaTeX to PDF
         uses: xu-cheng/latex-action@v2
         with:
@@ -76,17 +35,25 @@ jobs:
             -interaction=nonstopmode
             -file-line-error
           work_in_root_file_dir: true
-        
+          
+      # Verificar que los PDFs se crearon correctamente
+      - name: Verify PDFs exist
+        run: |
+          ls -la Workshops/Workshop1/build/
+          ls -la Workshops/Workshop2/build/
+       
       - name: Upload Workshop1 PDF
         if: success()
         uses: actions/upload-artifact@v4
         with:
           name: workshop1-pdf
           path: Workshops/Workshop1/build/Workshop1.pdf
-          
+          if-no-files-found: error
+         
       - name: Upload Workshop2 PDF
         if: success()
         uses: actions/upload-artifact@v4
         with:
           name: workshop2-pdf
           path: Workshops/Workshop2/build/Workshop2.pdf
+          if-no-files-found: error
