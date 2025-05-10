@@ -154,6 +154,48 @@ These elements suggest that the system cannot be modeled effectively using simpl
     
 
 \section{High-Level Architecture}
+\subsection*{Data Ingestion}
+
+First, raw data is loaded. The competition provides four essential files to develop the predictive model:
+
+\begin{description}
+  \item[Train.csv] Training dataset containing the features necessary for the model to learn the underlying patterns.
+  
+  \item[Test.csv] Evaluation dataset where you will apply your trained model to generate predictions. Similar to the training set but without including the correct answers.
+  
+  \item[sample\_submission.csv] Template that specifies the exact format required to submit your final predictions to the competition platform, ensuring compatibility with the evaluation system.
+  
+  \item[train\_labels.csv] Contains the target answers that the model must learn to predict. This file includes the session identifier (session\_id), the corresponding question, and a binary indicator that shows whether the question was answered correctly or not.
+\end{description}
+
+This data structure, which separates features from labels, is designed to facilitate the development of a binary classification model that can effectively predict whether an answer will be correct or incorrect.
+
+\subsection*{Data Preparation}
+
+Once the raw data is loaded, the first step is to clean it to retain only the elements relevant for modeling, in addition to extracting relevant information that is not explicitly available. The goal is to extract features that are likely to correlate with student performance and reflect behavioral patterns in the game data.
+
+\subsection*{Model Training}
+
+Once the data is prepared, a machine learning model is selected for training. For this competition, a tree-based model is used, such as RandomForest, GradientBoostedTrees, CART, or DistributedGradientBoostedTrees, as they work well with structured data and effectively manage numerical and categorical variables. Additionally, they are ideal for capturing non-linear relationships in the dataset.
+
+\subsection*{Model Inference}
+
+Once the model is trained, inference is performed on the test set to evaluate its predictive accuracy. Multiple models can be tested to compare their performance and determine which offers the most accurate results.
+
+\subsection*{Submission Generator}
+
+Formatting predictions in the required format
+and deploying to LLM Kaggle.
+
+\subsection*{Systems Engineering Principles}
+
+\begin{description}
+  \item[Modularity:] The system was divided into independent components, each with a specific responsibility. In our case, modules were separated for data ingestion, cleaning and processing, feature engineering, model training, evaluation, and prediction.
+  
+  \item[Reusability:] Thanks to modularity, components can be reused without the need to modify the entire system. For example, if you want to train the model with another algorithm, it is not necessary to change the data ingestion module, and adjustments in processing would be minimal or none, depending on the requirements of the new model.
+  
+  \item[Scalability:] The system was designed to scale horizontally, allowing it to process larger volumes of data without affecting its structure. If more event records or new sessions are received in the future, the current components can adapt without redesigning the entire system.
+\end{description}
 
 \section{Addressing Sensitivity and Chaos}
 In this section, we address the sensitive variables and chaotic factors identified during the system analysis in Workshop 1. The student’s performance in this context is modeled based on their interactions with the educational game. Multiple sources of variability were identified, including unpredictable user behavior, variable initial conditions, and random in-game events.
@@ -176,6 +218,29 @@ The mitigation strategies implemented to address these challenges include:
     \item \textbf{Monitoring of Unanticipated Conditions:} \\
     Implementation of observation routines to detect unusual patterns or anomalies in the interaction data.
 \end{enumerate}
+
 \section{Technical Stack and Implementation Sketch}
+
+The following tools will be used to build and train the model:
+
+\subsection*{Programming Language}
+\begin{itemize}
+  \item \textbf{Python:} Main language due to its ease of use and its broad ecosystem for data science and machine learning.
+\end{itemize}
+
+\subsection*{Libraries and Frameworks}
+\begin{itemize}
+  \item \textbf{NumPy and Pandas:} For data manipulation, cleaning, and processing.
+  \item \textbf{LightGBM or XGBoost:} For creating tree-based models, highly efficient for structured data.
+  \item \textbf{Matplotlib and Seaborn:} For visualization and exploratory data analysis.
+  \item \textbf{TensorFlow Decision Forests (optional):} For experimenting with advanced tree models within the TensorFlow environment.
+\end{itemize}
+
+\subsection*{Environment and Tools}
+\begin{itemize}
+  \item \textbf{Jupyter Notebooks:} For implementation, experimentation, and model documentation.
+  \item \textbf{Git and GitHub:} For version control and collaborative work.
+  \item \textbf{Kaggle Notebooks:} For testing and final submission of the model on the official competition platform.
+\end{itemize}
 
 \end{document}
