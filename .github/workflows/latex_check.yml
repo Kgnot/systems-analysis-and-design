@@ -4,6 +4,7 @@ on:
     paths:
       - 'Workshops/Workshop1/**.tex'
       - 'Workshops/Workshop2/**.tex'
+      - 'Workshops/Workshop3/**.tex'
 
 jobs:
   verify-latex:
@@ -20,6 +21,7 @@ jobs:
           root_file: |
             Workshops/Workshop1/Workshop1.tex
             Workshops/Workshop2/Workshop2.tex
+            Workshops/Workshop3/Workshop3.tex
           compiler: pdflatex
           args: >
             -output-directory=./build
