@@ -133,30 +133,31 @@
 	To evaluate the impact of different types of features, we defined and tested multiple combinations of \texttt{CATEGORICAL} and \texttt{NUMERICAL} variables. Each set was inspired by a specific perspective of the system and user behavior:
 	
 	\begin{enumerate}
-		\item \textbf{Player interaction only}
-		\begin{lstlisting}[language=Python, caption=Feature set based on player interaction, basicstyle=\ttfamily\small]
-			CATEGORICAL = ['event_name', 'name', 'fqid']
-			NUMERICAL = ['elapsed_time', 'hover_duration', 'room_coor_x', 'room_coor_y']
-		\end{lstlisting}
-		
-		\item \textbf{Game configuration and environment}
-		\begin{lstlisting}[language=Python, caption=Feature set based on configuration and environment, basicstyle=\ttfamily\small]
-			CATEGORICAL = ['fullscreen', 'hq', 'music', 'room_fqid']
-			NUMERICAL = ['screen_coor_x', 'screen_coor_y', 'elapsed_time']
-		\end{lstlisting}
-		
-		\item \textbf{Minimal and simple}
-		\begin{lstlisting}[language=Python, caption=Minimal feature set, basicstyle=\ttfamily\small]
-			CATEGORICAL = ['event_name', 'fqid']
-			NUMERICAL = ['elapsed_time']
-		\end{lstlisting}
-		
-		\item \textbf{Text and screen identification}
-		\begin{lstlisting}[language=Python, caption=Feature set based on text and interface identifiers, basicstyle=\ttfamily\small]
-			CATEGORICAL = ['text', 'text_fqid']
-			NUMERICAL = ['screen_coor_x', 'screen_coor_y', 'hover_duration']
-		\end{lstlisting}
-	\end{enumerate}
+	\item \textbf{Player interaction only}
+	\begin{lstlisting}[language=Python, caption=Feature set based on player interaction, basicstyle=\ttfamily\small, breaklines=true]
+CATEGORICAL = ['event_name', 'name', 'fqid']
+NUMERICAL = ['elapsed_time', 'hover_duration', 'room_coor_x', 'room_coor_y']
+	\end{lstlisting}
+	
+	\item \textbf{Game configuration and environment}
+	\begin{lstlisting}[language=Python, caption=Feature set based on configuration and environment, basicstyle=\ttfamily\small, breaklines=true]
+CATEGORICAL = ['fullscreen', 'hq', 'music', 'room_fqid']
+NUMERICAL = ['screen_coor_x', 'screen_coor_y', 'elapsed_time']
+	\end{lstlisting}
+	
+	\item \textbf{Minimal and simple}
+	\begin{lstlisting}[language=Python, caption=Minimal feature set, basicstyle=\ttfamily\small, breaklines=true]
+CATEGORICAL = ['event_name', 'fqid']
+NUMERICAL = ['elapsed_time']
+	\end{lstlisting}
+	
+	\item \textbf{Text and screen identification}
+	\begin{lstlisting}[language=Python, caption=Feature set based on text and interface identifiers, basicstyle=\ttfamily\small, breaklines=true]
+CATEGORICAL = ['text', 'text_fqid']
+NUMERICAL = ['screen_coor_x', 'screen_coor_y', 'hover_duration']
+	\end{lstlisting}
+\end{enumerate}
+
 	
 	For each of these combinations, a feature engineering process was applied by grouping the data by \texttt{session\_id} and \texttt{level\_group}. For each categorical variable, the number of unique values was calculated. For each numerical variable, both the mean and standard deviation were computed. This process transforms a sequence of player interactions into a fixed-size feature vector, suitable for supervised learning models.
 	
