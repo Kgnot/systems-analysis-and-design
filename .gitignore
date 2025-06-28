@@ -5,8 +5,6 @@
 *.gz
 *.out
 *.fls
-# este es provicional
-*.pdf
 !PDF_Releases/*.pdf
 #Cosas del sistema
 .DS_Store
