@@ -7,7 +7,6 @@ on:
     paths:
       - 'Workshops/Workshop1/**.tex'
       - 'Workshops/Workshop2/**.tex'
-      - 'Workshops/Workshop3/**.tex'
 
 jobs:
   build-pdf:
@@ -21,7 +20,6 @@ jobs:
         run: |
           mkdir -p Workshops/Workshop1/build
           mkdir -p Workshops/Workshop2/build
-          mkdir -p Workshops/Workshop3/build
            
       - name: Compile LaTeX to PDF
         uses: xu-cheng/latex-action@v2
@@ -31,7 +29,6 @@ jobs:
           root_file: |
             Workshops/Workshop1/Workshop1.tex
             Workshops/Workshop2/Workshop2.tex
-            Workshops/Workshop3/Workshop3.tex
           compiler: pdflatex
           args: >
             -output-directory=./build
@@ -44,7 +41,6 @@ jobs:
         run: |
           ls -la Workshops/Workshop1/build/
           ls -la Workshops/Workshop2/build/
-          ls -la Workshops/Workshop3/build/
        
       - name: Upload Workshop1 PDF
         if: success()
@@ -60,12 +56,4 @@ jobs:
         with:
           name: workshop2-pdf
           path: Workshops/Workshop2/build/Workshop2.pdf
-          if-no-files-found: error
-
-      - name: Upload Workshop3 PDF
-        if: success()
-        uses: actions/upload-artifact@v4
-        with:
-          name: workshop3-pdf
-          path: Workshops/Workshop3/build/Workshop3.pdf
           if-no-files-found: error
