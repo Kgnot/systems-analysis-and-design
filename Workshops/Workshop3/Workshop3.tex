@@ -32,15 +32,15 @@
 	\section{Methodology}
 	
 	\subsection{Data Preparation}
+\begin{itemize}
+	\item \textbf{Dataset Used:} \texttt{train.csv}, \texttt{train\_labels.csv}, \texttt{test.csv}
+	\item \textbf{Preprocessing Steps:}
 	\begin{itemize}
-		\item \textbf{Dataset Used:} \texttt{train.csv}, \texttt{train\_labels.csv}, \texttt{test.csv}
-		\item \textbf{Preprocessing Steps:}
-		\begin{itemize}
-			\item Removal of invalid clicks ($<$90ms between events)
-			\item Standardization of x/y coordinate space
-			\item Feature extraction: event frequency, hover duration, session length and event density, movement trajectories
-		\end{itemize}
+		\item Standardization of x/y coordinate space
+		\item Feature extraction: event frequency, hover duration, session length and event density, movement trajectories
 	\end{itemize}
+\end{itemize}
+
 	
 	\subsection{Simulation Focus}
 	\begin{itemize}
@@ -66,35 +66,36 @@
 	
 	The corresponding code block for this stage is shown below:
 	
-	\begin{lstlisting}[language=Python, caption=Explicit Data Typing and Ingestion, basicstyle=\ttfamily\small]
-		dtypes = {
-			'elapsed_time': np.int32,
-			'hover_duration': np.float32,
-			'event_name': 'category',
-			'name': 'category',
-			'level': np.uint8,
-			'room_coor_x': np.float32,
-			'room_coor_y': np.float32,
-			'screen_coor_x': np.float32,
-			'screen_coor_y': np.float32,
-			'text': 'category',
-			'fqid': 'category',
-			'room_fqid': 'category',
-			'text_fqid': 'category',
-			'fullscreen': 'category',
-			'hq': 'category',
-			'music': 'category',
-			'level_group': 'category',
-			'session_id': 'category'
-		}
-		
-		dataset_df = pd.read_csv(
-		'/kaggle/input/predict-student-performance-from-game-play/train.csv',
-		dtype=dtypes
-		)
-		
-		print("Full train dataset shape is {}".format(dataset_df.shape))
-	\end{lstlisting}
+	\begin{lstlisting}[language=Python, caption=Explicit Data Typing and Ingestion, basicstyle=\ttfamily\small, breaklines=true]
+dtypes = {
+    'elapsed_time': np.int32,
+    'hover_duration': np.float32,
+    'event_name': 'category',
+    'name': 'category',
+    'level': np.uint8,
+    'room_coor_x': np.float32,
+    'room_coor_y': np.float32,
+    'screen_coor_x': np.float32,
+    'screen_coor_y': np.float32,
+    'text': 'category',
+    'fqid': 'category',
+    'room_fqid': 'category',
+    'text_fqid': 'category',
+    'fullscreen': 'category',
+    'hq': 'category',
+    'music': 'category',
+    'level_group': 'category',
+    'session_id': 'category'
+}
+
+dataset_df = pd.read_csv(
+    '/kaggle/input/predict-student-performance-from-game-play/train.csv',
+    dtype=dtypes
+)
+
+print("Full train dataset shape is {}".format(dataset_df.shape))
+\end{lstlisting}
+
 	
 	This outputs:
 	
@@ -188,7 +189,9 @@ NUMERICAL = ['screen_coor_x', 'screen_coor_y', 'hover_duration']
 	
 	To assess the consistency and effectiveness of each model, we evaluated the predictive accuracy across all 18 questions using four distinct sets of features. Each set corresponds to a unique combination of \texttt{CATEGORICAL} and \texttt{NUMERICAL} variables, as previously described in Section 2.3.2.
 	
-	\vspace{0.5em}
+\section{Results}
+
+\vspace{0.5em}
 	\paragraph{Evaluation Summary}
 	
 	The tables below show the per-question accuracy for each model (Random Forest and XGBoost) and feature set. All models exhibit strong performance on early questions (1–3), with accuracy often above 0.95 for question 2. Performance tends to vary more on mid- and late-stage questions.
@@ -291,32 +294,8 @@ NUMERICAL = ['screen_coor_x', 'screen_coor_y', 'hover_duration']
 		\end{tabular}
 		\label{tab:xgb_metrics}
 	\end{table}
-	
-	\section{Code Highlights}
-	The implementation was done in Jupyter using Python. Chaos was simulated via noise injection.
-	
-	\begin{lstlisting}[language=Python, caption=Injecting Perturbations, basicstyle=\ttfamily\small]
-		# Adding perturbation to simulate chaos
-		df['hover_duration'] += np.random.normal(0, 0.3, size=len(df))
-		model = lgb.LGBMClassifier()
-		model.fit(X_train, y_train)
-	\end{lstlisting}
-	
-	\noindent Evaluation was done using accuracy and confusion matrices.
-	
-\section{Results}
 
-The simulation yielded clear trends in model behavior under different experimental conditions:
 
-\begin{longtable}{|l|c|p{8cm}|}
-	\hline
-	\textbf{Simulation Setting} & \textbf{Accuracy} & \textbf{Observation} \\
-	\hline
-	No noise & 0.763 & Baseline scenario; predictions were stable and consistent across sessions and level groups. \\
-	Noise in hover duration & 0.732 & Minor performance degradation; revealed the high sensitivity of the \texttt{hover\_duration} feature to perturbations. \\
-	Chaotic sessions & 0.709 & Greater variability in predictions, especially for mid-level questions; model accuracy became more unpredictable. \\
-	\hline
-\end{longtable}
 
 \noindent \textbf{Key Findings:}
 \begin{itemize}
@@ -333,9 +312,15 @@ The modular architecture proposed in Workshop \#2 proved essential for analyzing
 
 \subsection{Emergent Behavior and Model Sensitivity}
 
-Unexpected dynamics emerged when injecting Gaussian noise or simulating fragmented sessions. These chaotic conditions caused localized accuracy drops, especially in questions requiring longer interaction chains. Such emergent patterns resemble phenomena observed in complex adaptive systems, where small variations can propagate non-linearly.
+Distinct user session trajectories caused localized accuracy drops, especially in questions requiring longer interaction chains. These emergent patterns reflect typical characteristics of complex systems, where small variations in interaction sequences can lead to disproportionately large effects on model performance.
 
-Models like LightGBM, though faster and effective with categorical features, showed slightly more sensitivity to hover-based perturbations. In contrast, Random Forest preserved more consistent behavior under chaotic conditions but was computationally heavier.
+During the simulation, certain interaction styles—such as rapid screen transitions or irregular engagement patterns—produced less stable predictions, particularly in the middle and final stages of gameplay. This suggests that model sensitivity is not uniform and tends to increase as user behavior deviates from more common or consistent patterns.
+
+Feature sets involving timing and spatial coordinates appeared especially vulnerable to session irregularities, showing greater variation in performance. This highlights the relevance of capturing not only individual features, but also the structural and temporal relationships between them.
+
+The observations reinforce the idea that predictive models must account for the dynamics of user behavior over time. Designing systems that can interpret interaction context and sequence offers a more robust foundation for maintaining accuracy under diverse usage conditions.
+
+
 
 \subsection{Limitations}
 
