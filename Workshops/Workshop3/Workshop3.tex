@@ -51,14 +51,14 @@
 	
 	\subsection{Architecture Alignment}
 	The simulation reflects the architecture defined in Workshop \#2 and illustrated in Figure~\ref{fig:pipeline}.
-	
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.9\linewidth]{src/pipeline.png}
-		\caption{Architecture and data flow defined in Workshop \#2: from ingestion to submission}
-		\label{fig:pipeline}
-	\end{figure}
-	
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\linewidth]{src/pipeline.png}
+        \caption{Architecture and data flow defined in Workshop \#2: from ingestion to submission}
+        \label{fig:pipeline}
+    \end{figure}
+
 	
 	\subsubsection{Data Ingestion:}
 	The first step of the pipeline corresponds to the ingestion of data \textbf{}, a fundamental stage to ensure the proper reading, storage, and handling of large-scale data. In this project, we work with the \texttt{train.csv} file provided by the Kaggle competition, which contains more than 26 million records representing student interactions within the educational game environment.
@@ -303,69 +303,69 @@
 	
 	\noindent Evaluation was done using accuracy and confusion matrices.
 	
-	\section{Results}
+\section{Results}
+
+The simulation yielded clear trends in model behavior under different experimental conditions:
+
+\begin{longtable}{|l|c|p{8cm}|}
+	\hline
+	\textbf{Simulation Setting} & \textbf{Accuracy} & \textbf{Observation} \\
+	\hline
+	No noise & 0.763 & Baseline scenario; predictions were stable and consistent across sessions and level groups. \\
+	Noise in hover duration & 0.732 & Minor performance degradation; revealed the high sensitivity of the \texttt{hover\_duration} feature to perturbations. \\
+	Chaotic sessions & 0.709 & Greater variability in predictions, especially for mid-level questions; model accuracy became more unpredictable. \\
+	\hline
+\end{longtable}
+
+\noindent \textbf{Key Findings:}
+\begin{itemize}
+	\item Predictive accuracy decreases as system perturbations increase, simulating conditions of rising entropy in user behavior.
+	\item The feature \texttt{hover\_duration} is particularly noise-sensitive and acts as a leverage point in the system's dynamics.
+	\item Late-session predictions were more affected by chaos, possibly due to accumulated state complexity in player trajectories.
+\end{itemize}
 	
-	The simulation yielded clear trends in model behavior under different experimental conditions:
+\section{Discussion}
+
+\subsection{System Design Insights}
+
+The modular architecture proposed in Workshop \#2 proved essential for analyzing system behavior under chaotic conditions. Isolated components enabled controlled experimentation, validating the robustness and flexibility of the design.
+
+\subsection{Emergent Behavior and Model Sensitivity}
+
+Unexpected dynamics emerged when injecting Gaussian noise or simulating fragmented sessions. These chaotic conditions caused localized accuracy drops, especially in questions requiring longer interaction chains. Such emergent patterns resemble phenomena observed in complex adaptive systems, where small variations can propagate non-linearly.
+
+Models like LightGBM, though faster and effective with categorical features, showed slightly more sensitivity to hover-based perturbations. In contrast, Random Forest preserved more consistent behavior under chaotic conditions but was computationally heavier.
+
+\subsection{Limitations}
+
+\begin{itemize}
+	\item The simulations used a reduced dataset due to computational limits, which may constrain generalizability.
+	\item Chaos was modeled solely via Gaussian noise, which, while illustrative, may not capture the full range of behavioral variability in real user data.
+	\item Interaction between perturbation and question semantics was not deeply explored; future work could link question difficulty and system entropy.
+\end{itemize}
 	
-	\begin{longtable}{|l|c|p{8cm}|}
-		\hline
-		\textbf{Simulation Setting} & \textbf{Accuracy} & \textbf{Observation} \\
-		\hline
-		No noise & 0.763 & Baseline scenario; predictions were stable and consistent across sessions and level groups. \\
-		Noise in hover duration & 0.732 & Minor performance degradation; revealed the high sensitivity of the \texttt{hover\_duration} feature to perturbations. \\
-		Chaotic sessions & 0.709 & Greater variability in predictions, especially for mid-level questions; model accuracy became more unpredictable. \\
-		\hline
-	\end{longtable}
-	
-	\noindent \textbf{Key Findings:}
-	\begin{itemize}
-		\item Predictive accuracy decreases as system perturbations increase, simulating conditions of rising entropy in user behavior.
-		\item The feature \texttt{hover\_duration} is particularly noise-sensitive and acts as a leverage point in the system's dynamics.
-		\item Late-session predictions were more affected by chaos, possibly due to accumulated state complexity in player trajectories.
-	\end{itemize}
-	
-	\section{Discussion}
-	
-	\subsection{System Design Insights}
-	
-	The modular architecture proposed in Workshop \#2 proved essential for analyzing system behavior under chaotic conditions. Isolated components enabled controlled experimentation, validating the robustness and flexibility of the design.
-	
-	\subsection{Emergent Behavior and Model Sensitivity}
-	
-	Unexpected dynamics emerged when injecting Gaussian noise or simulating fragmented sessions. These chaotic conditions caused localized accuracy drops, especially in questions requiring longer interaction chains. Such emergent patterns resemble phenomena observed in complex adaptive systems, where small variations can propagate non-linearly.
-	
-	Models like LightGBM, though faster and effective with categorical features, showed slightly more sensitivity to hover-based perturbations. In contrast, Random Forest preserved more consistent behavior under chaotic conditions but was computationally heavier.
-	
-	\subsection{Limitations}
-	
-	\begin{itemize}
-		\item The simulations used a reduced dataset due to computational limits, which may constrain generalizability.
-		\item Chaos was modeled solely via Gaussian noise, which, while illustrative, may not capture the full range of behavioral variability in real user data.
-		\item Interaction between perturbation and question semantics was not deeply explored; future work could link question difficulty and system entropy.
-	\end{itemize}
-	
-	\section{Conclusions and Next Steps}
-	
-	\textbf{Conclusions:}
-	\begin{itemize}
-		\item The simulation framework demonstrated that predictive performance in educational systems is highly sensitive to user behavior perturbations—an expected characteristic in complex systems.
-		\item Modular pipeline design enhances resilience testing, allowing targeted injection of chaos and analysis of system fragility.
-		\item Features like \texttt{hover\_duration} act as critical points; their stability is essential for consistent predictions.
-	\end{itemize}
-	
-	\textbf{Reflections:}
-	\begin{itemize}
-		\item The behavior of learning systems under noise highlights the importance of robust feature engineering and monitoring strategies.
-		\item Emergent dynamics such as inconsistent user trajectories and non-linear degradation in performance should be anticipated in real-world applications.
-		\item Designing for resilience — not just accuracy — is a key insight when modeling systems with human behavior.
-	\end{itemize}
-	
-	\textbf{Suggested Improvements:}
-	\begin{itemize}
-		\item Integrate real-time anomaly detection to handle behavioral deviations as they occur.
-		\item Explore ensemble or hybrid models for improved robustness in chaotic scenarios.
-		\item Extend chaos modeling beyond Gaussian noise, using agent-based simulation or behavioral clustering.
-	\end{itemize}
+\section{Conclusions and Next Steps}
+
+\textbf{Conclusions:}
+\begin{itemize}
+	\item The simulation framework demonstrated that predictive performance in educational systems is highly sensitive to user behavior perturbations—an expected characteristic in complex systems.
+	\item Modular pipeline design enhances resilience testing, allowing targeted injection of chaos and analysis of system fragility.
+	\item Features like \texttt{hover\_duration} act as critical points; their stability is essential for consistent predictions.
+\end{itemize}
+
+\textbf{Reflections:}
+\begin{itemize}
+	\item The behavior of learning systems under noise highlights the importance of robust feature engineering and monitoring strategies.
+	\item Emergent dynamics such as inconsistent user trajectories and non-linear degradation in performance should be anticipated in real-world applications.
+	\item Designing for resilience — not just accuracy — is a key insight when modeling systems with human behavior.
+\end{itemize}
+
+\textbf{Suggested Improvements:}
+\begin{itemize}
+	\item Integrate real-time anomaly detection to handle behavioral deviations as they occur.
+	\item Explore ensemble or hybrid models for improved robustness in chaotic scenarios.
+	\item Extend chaos modeling beyond Gaussian noise, using agent-based simulation or behavioral clustering.
+\end{itemize}
 	
 	\section{Deliverables}
 	\begin{itemize}
