@@ -24,12 +24,7 @@ class ModelML(ABC):
 
 class RandomForestTreeModel(ModelML):
     tfdf.keras.get_all_models()
-    rf = tfdf.keras.GradientBoostedTreesModel(hyperparameter_template="benchmark_rank1")
-    def __init__(self, VALID_USER_LIST):
-        super().__init__(VALID_USER_LIST)
-        # Configuración de logs para suprimir mensajes no deseados
-        logging.set_verbosity(logging.ERROR)
-        tfdf.keras.set_training_logs_verbosity(0)
+    rf = tfdf.keras.RandomForestModel()
 
     def train(self, train_x, valid_x, labels):
         for q_no in range(1, 19):
@@ -62,7 +57,11 @@ class RandomForestTreeModel(ModelML):
                 label="correct"
             )
 
-            gbtm = tfdf.keras.GradientBoostedTreesModel(verbose=0)
+            gbtm = tfdf.keras.GradientBoostedTreesModel(               
+                verbose=0,
+                sampling_method="GOSS",  # Opción 2
+                goss_alpha=0.2,
+                goss_beta=0.1)
             gbtm.compile(metrics=["accuracy"])
             gbtm.fit(x=train_ds)
 

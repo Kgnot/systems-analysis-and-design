@@ -19,3 +19,8 @@ def feature_engineer(dataset_df, CATEGORICAL, NUMERICAL):
     dataset_df = dataset_df.reset_index()
     dataset_df = dataset_df.set_index('session_id')
     return dataset_df.copy()
+
+def split_dataset(dataset, test_ratio=0.20):
+    USER_LIST = dataset.index.unique()
+    split = int(len(USER_LIST) * (1 - 0.20))
+    return dataset.loc[USER_LIST[:split]], dataset.loc[USER_LIST[split:]]
